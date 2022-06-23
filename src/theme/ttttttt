@@ -1,0 +1,12 @@
+bootstrap@4.3.1
+"styles": [
+          {
+            "input": "src/theme/variables.scss"
+          },
+          {
+            "input": "src/global.scss"
+          },
+          {
+            "input": "node_modules/bootstrap/dist/css/bootstrap.min.css"
+          }
+        ],

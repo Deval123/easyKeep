@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>easyKeep</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8 text-center text-justify">
+      <form >
+
+        <ion-item>
+          <ion-label position="floating">Login</ion-label>
+          <ion-input type="text" class="ion-input" [(ngModel)]="login" [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" class="ion-input" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+
+        <div class="row">
+          <div class="col-md-4" padding text-center>
+            <ion-button shape="round" color="light" (click)="signIn()">
+              Se Connecter<ion-icon name="login"></ion-icon>
+            </ion-button>
+          </div>
+          <div class="col-md-4" text-center margin-top>
+            <span  tappable (click)="signUp()"><strong>Nouveau dans EasyKeep? </strong></span>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+</ion-content>

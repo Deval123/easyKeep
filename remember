@@ -1,0 +1,33 @@
+https://habitechsolution.com/testEasyKeep/insertReleveur.php
+  URL2 = "https://habitechsolution.com/devdb", penser à changer l'api côté php
+  URL1  = "http://localhost/easyKeep",
+  URL3 = "http://192.168.137.1/easyKeep"
+
+
+
+port: 3306
+hôte: localhost
+bd: habite1012_easykeep
+user: habite1012_easy
+password: TXTgm8jQ9_xY
+
+
+1. Pour libérer build pour Android, nous pouvons utiliser la commande cordova cli suivante
+
+ionic cordova build - release Android
+
+2. Build apk n'est pas signé. Besoin de le signer. C’est pourquoi créer une clé privée avec keytool de JDK. nous pouvons utiliser la commande cli suivante
+
+keytool -genkey -v –keystore mykey.keystore -alias nom_alias -keyalg RSA -keysize 2048 -validité 10000
+
+conservez le fichier mykey.keystore dans un endroit sûr pour une utilisation ultérieure . si l'outil de clé ne fonctionne pas, copiez le chemin d'accès de ce fichier et définissez-le dans la variable d'environnement système.
+
+3. Maintenant, signez l'apk non signé avec la commande suivante
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore mykey.keystore chemin_projet\plateformes\Android\build\sorties\apk\Android-release-unsigned.apk alias_nom
+
+4. Optimisez enfin le fichier apk.
+
+zipalign -v 4 chemin du projet\plateformes\Android\build\sorties\apk\Android-release-unsigned.apk chemin du projet\plateformes\Android\build\sorties\apk\Android-release.apk
+
+pour plus de détails, vous pouvez visiter suivant url Build Release APK of Application Android de ionic
